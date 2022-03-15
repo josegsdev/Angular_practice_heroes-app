@@ -1,0 +1,36 @@
+
+<div style=" width: 30%; margin: 0 auto">
+
+<mat-grid-list cols="2" *ngIf="!heroe;else llego">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #llego>
+
+    <button mat-button (click)="regresar()">Regresar</button>
+
+    <mat-card class="example-card" >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{heroe.superhero}}</mat-card-title>
+          <mat-card-subtitle>{{heroe.alter_ego}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{ heroe | imagenHeroe }}" alt="{{heroe.superhero}}">
+        <mat-card-content>
+          <h3>
+            {{heroe.publisher}}
+          </h3>
+          <strong>Primera aparicion: </strong>{{heroe.first_appearance}}
+          <br>
+          <strong>Personajes: </strong>{{heroe.characters}}
+        </mat-card-content>
+        <mat-card-actions>
+         
+        </mat-card-actions>
+      </mat-card>
+
+</ng-template>
+
+</div>

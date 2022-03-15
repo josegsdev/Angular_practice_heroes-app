@@ -1,0 +1,85 @@
+<div fxLayout="column">
+    <div>
+        <h1>Buscador de heroes</h1>
+        <mat-divider></mat-divider>
+    </div>
+
+    <div>
+        <h3>Buscardor</h3>
+
+      
+            <mat-form-field>
+              <input type="text"
+                     placeholder="Pick one"
+                     aria-label="Number"
+                     matInput
+                     [(ngModel)]="termino"
+                     [matAutocomplete]="auto"
+                     (input)="buscar()">
+              <mat-autocomplete 
+              autoActiveFirstOption 
+              #auto="matAutocomplete"
+              (optionSelected)="optSeleccionado( $event )">
+
+              <ng-container *ngIf="heroes.length < 1 && termino.trim().length > 0; else conResultados">
+                <mat-option value="">No existen coincidencias con {{termino}}</mat-option>
+              </ng-container>
+
+              <ng-template #conResultados>
+                <mat-option *ngFor="let heroe of heroes " [value]="heroe">
+                  {{heroe.superhero}}
+                </mat-option>
+              </ng-template>
+              
+              </mat-autocomplete>
+            </mat-form-field>
+      
+
+    </div>
+
+    <!--DETALLE-->
+   
+    <ng-container *ngIf="heroeSeleccionado; else sinHeroe">
+        <div style=" width: 30%; margin: 0 auto">
+
+          <mat-card class="example-card" >
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{heroeSeleccionado.superhero}}</mat-card-title>
+              <mat-card-subtitle>{{heroeSeleccionado.alter_ego}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{ heroeSeleccionado | imagenHeroe }}" alt="{{heroeSeleccionado.superhero}}">
+            <mat-card-content>
+              <h3>
+                {{heroeSeleccionado.publisher}}
+              </h3>
+              <strong>Primera aparicion: </strong>{{heroeSeleccionado.first_appearance}}
+              <br>
+              <strong>Personajes: </strong>{{heroeSeleccionado.characters}}
+            </mat-card-content>
+            <mat-card-actions>
+             
+            </mat-card-actions>
+          </mat-card>
+
+
+            
+        </div>
+    </ng-container>
+
+    <ng-template #sinHeroe>
+        <h4>Escoja un heroe</h4>
+    </ng-template>
+        
+    
+
+    <!-- FIN DETALLE-->
+
+</div>
+
+
+
+
+
+
+  

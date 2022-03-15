@@ -1,0 +1,73 @@
+<h1>Superheroe <small>nombre</small></h1>
+
+<div fxLayout="row" fxLauyotGap="40px">
+
+
+    <div fxFlex="50" fxLayout="column">    
+
+        <div fxLayout="row" fxLayoutGap="40px">
+
+            <mat-form-field fxFlex="100" >
+                <mat-label>Superheroe
+                    <input matInput
+                        type="text"
+                        required
+                    >
+                </mat-label>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="100">
+                <mat-label>Alter ego
+                    <input matInput
+                        type="text"
+                        required
+                    >
+                </mat-label>
+            </mat-form-field>
+
+        </div>
+
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Primera aparicion
+                <input matInput
+                    type="text"
+                    required
+                >
+            </mat-label>
+        </mat-form-field>
+
+
+        <mat-form-field >
+            <mat-label>Publicador</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let p of publicador" [value]="p.id">{{p.desc}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+             
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Foto URL
+                <input matInput
+                    type="url"
+                    required
+                >
+            </mat-label>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="warn">
+            <mat-icon>save</mat-icon>
+            Guardar</button>
+
+
+    </div>
+
+
+    <div fxFlex="50">
+
+        <img [src]="heroe | imagenHeroe">
+
+    </div>
+
+
+</div>

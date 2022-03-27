@@ -11,6 +11,7 @@ import { MaterialModule } from '../material/material.module';
 import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.component';
 import { ImagenHeroePipe } from '../shared/pipes/imagen-heroe.pipe';
 import { FormsModule } from '@angular/forms';
+import {ModalEliminarComponent} from './components/modal-eliminar/modal-eliminar.component';
 
 
 
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     HeroesHomeComponent,
     ListadoComponent,
     HeroeTarjetaComponent,
-    ImagenHeroePipe
+    ImagenHeroePipe,
+    ModalEliminarComponent
     
   ],
   imports: [

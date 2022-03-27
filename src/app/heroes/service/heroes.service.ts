@@ -24,4 +24,18 @@ export class HeroesService {
   buscarSugerencias(str:string):Observable<Heroe[]>{
     return this.http.get<Heroe[]>(`${environment.baseApiUrl + this.url}?q=${str}&_limit=6`);
   }
+
+  guardarHeroe(h:Heroe):Observable<Heroe>{
+    return this.http.post<Heroe>(environment.baseApiUrl + this.url,h);
+  }
+
+  editarHeroe(h:Heroe):Observable<Heroe>{
+    return this.http.put<Heroe>((environment.baseApiUrl + this.url + '/' + h.id) ,h);
+  }
+
+  eliminarHeroe(h:Heroe):Observable<any>{
+    return this.http.delete<any>((environment.baseApiUrl + this.url + '/' + h.id));
+  }
+
+
 }

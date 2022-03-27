@@ -1,16 +1,23 @@
 <h1>Superheroe <small>nombre</small></h1>
+<br>
 
+<p>
+    {{heroe | json}}
+</p>
+
+<br>
 <div fxLayout="row" fxLauyotGap="40px">
 
 
     <div fxFlex="50" fxLayout="column">    
 
         <div fxLayout="row" fxLayoutGap="40px">
-
+            
             <mat-form-field fxFlex="100" >
                 <mat-label>Superheroe
                     <input matInput
                         type="text"
+                        [(ngModel)]="heroe.superhero"
                         required
                     >
                 </mat-label>
@@ -20,6 +27,7 @@
                 <mat-label>Alter ego
                     <input matInput
                         type="text"
+                        [(ngModel)]="heroe.alter_ego"
                         required
                     >
                 </mat-label>
@@ -28,15 +36,25 @@
         </div>
 
 
-        <mat-form-field fxFlex="100">
+        <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Primera aparicion
                 <input matInput
                     type="text"
+                    [(ngModel)]="heroe.first_appearance"
                     required
                 >
             </mat-label>
         </mat-form-field>
 
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Personajes
+                <input matInput
+                    type="text"
+                    [(ngModel)]="heroe.characters"
+                    required
+                >
+            </mat-label>
+        </mat-form-field>
 
         <mat-form-field >
             <mat-label>Publicador</mat-label>
@@ -50,16 +68,24 @@
             <mat-label>Foto URL
                 <input matInput
                     type="url"
+                    [(ngModel)]="heroe.alt_img"
                     required
                 >
             </mat-label>
         </mat-form-field>
         <br>
-        <button mat-raised-button color="warn">
+        <button 
+        mat-stroked-button color="primary"
+        (click)="guardar()"
+        >
             <mat-icon>save</mat-icon>
             Guardar</button>
-
-
+            <br>
+            <button *ngIf="heroe.id"
+            mat-stroked-button color="warn"
+            (click)="eliminarHeroe()">
+                <mat-icon>delete</mat-icon>Eliminar
+            </button>
     </div>
 
 

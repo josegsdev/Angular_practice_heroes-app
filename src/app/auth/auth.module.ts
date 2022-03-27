@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AppRutasHijasModule } from './app-rutas-hijas.module';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -13,7 +14,8 @@ import { AppRutasHijasModule } from './app-rutas-hijas.module';
   ],
   imports: [
     CommonModule,
-    AppRutasHijasModule
+    AppRutasHijasModule,
+    MaterialModule
   ]
 })
 export class AuthModule { }
